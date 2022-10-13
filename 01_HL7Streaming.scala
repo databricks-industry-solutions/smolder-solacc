@@ -202,10 +202,11 @@ Thread.sleep(120000)
 // MAGIC * Easily stream into a persisted Delta table
 // MAGIC * Leverage Delta functionality for auditability and reproducability 
 // MAGIC 
-// MAGIC Now let's gracefully terminate the streaming queries.
+// MAGIC Now let's gracefully terminate the streaming queries after a few minutes.
 
 // COMMAND ----------
 
+Thread.sleep(120000)
 for (s <- spark.streams.active) {
   s.stop
 }
