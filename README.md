@@ -1,7 +1,6 @@
 # Smolder: A package for ingesting HL7 messages to Delta Lake
-<img src="https://drive.google.com/uc?export=view&id=1CEptCFInlQRfrgW2ZQyl09KlntdAmK34" width=100>
 
-"Smolder" is evidently a synonym for "glow" and nicely alludes to FHIR ("Fire"), so what could be a better name for a Databricks-y library for loading HL7 (and eventually FHIR?) data! To start, smolder defines a very simple Spark file format that loads one HL7 message per file, and parses it into a dataframe. Here, we'll demonstrate this using HL7 ADT messages generated from our Synthea cohort. It might even work for _streaming data_...
+In this notebook, we demonstrate how [Smolder](https://github.com/databrickslabs/smolder) can be used to parse HL7v2 message into your lakehouse. Smolder defines a very simple Spark file format that loads one HL7 message per file, and parses it into a dataframe. Here, we'll demonstrate this using a stream of HL7 ADT messages generated from a simulated dataset with [Synthea](https://github.com/synthetichealth/synthea)
 
 
 <div style="text-align: center; line-height: 0; padding-top: 9px;">
@@ -20,3 +19,8 @@ ___
 To run this accelerator, clone this repo into a Databricks workspace. Attach the RUNME notebook to any cluster running a DBR 11.0 or later runtime, and execute the notebook via Run-All. A multi-step-job describing the accelerator pipeline will be created, and the link will be provided. Execute the multi-step-job to see how the pipeline runs.
 
 The job configuration is written in the RUNME notebook in json format. The cost associated with running the accelerator is the user's responsibility.
+
+## Disclaimers
+Databricks Inc. (“Databricks”) does not dispense medical, diagnosis, or treatment advice. This Solution Accelerator (“tool”) is for informational purposes only and may not be used as a substitute for professional medical advice, treatment, or diagnosis. This tool may not be used within Databricks to process Protected Health Information (“PHI”) as defined in the Health Insurance Portability and Accountability Act of 1996, unless you have executed with Databricks a contract that allows for processing PHI, an accompanying Business Associate Agreement (BAA), and are running this notebook within a HIPAA Account. Please note that if you run this notebook within Azure Databricks, your contract with Microsoft applies.
+
+All names,  last names and places in this notebook have been randomly generated. No identification with actual persons (living or deceased), places, buildings, and products is intended or should be inferred.

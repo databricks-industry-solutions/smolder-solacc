@@ -1,18 +1,5 @@
 // Databricks notebook source
 // MAGIC %md
-// MAGIC # Smolder: A package for ingesting HL7 messages to Delta Lake
-// MAGIC <img src="https://drive.google.com/uc?export=view&id=1CEptCFInlQRfrgW2ZQyl09KlntdAmK34" width=100>
-// MAGIC 
-// MAGIC "Smolder" is evidently a synonym for "glow" and nicely alludes to FHIR ("Fire"), so what could be a better name for a Databricks-y library for loading HL7 (and eventually FHIR?) data! To start, smolder defines a very simple Spark file format that loads one HL7 message per file, and parses it into a dataframe. Here, we'll demonstrate this using HL7 ADT messages generated from our Synthea cohort. It might even work for _streaming data_...
-// MAGIC 
-// MAGIC 
-// MAGIC <div style="text-align: center; line-height: 0; padding-top: 9px;">
-// MAGIC <img src="https://databricks.com/wp-content/uploads/2021/01/blog-image-ehr-in-rt-1.jpg" width=900>
-// MAGIC </div>
-
-// COMMAND ----------
-
-// MAGIC %md
 // MAGIC ### Cluster Set Up
 // MAGIC 
 // MAGIC * Make sure [the Smolder jar file](https://amir-hls.s3.us-east-2.amazonaws.com/public/263572c0_25a1_46ce_9009_2ae456966ea9-smolder_2_12_0_0_1_SNAPSHOT-615ef.jar) is attached to your cluster. If you run the `RUNME` file in this folder, the cluster setup is automated and a Workflow and a `smolder_cluster` is created for you. Feel free to try running this notebook using either the Workflow or attach this notebook to the `smolder_cluster` to run interactively.
@@ -107,10 +94,10 @@ adtEvents.createOrReplaceTempView("adt_events")
 // MAGIC , eventType
 // MAGIC , patientID
 // MAGIC , firstName
-// MAGIC , lastName
 // MAGIC , hospital from adt_events 
 // MAGIC GROUP BY hospital, eventType, patientID, firstName, lastName
 // MAGIC ORDER BY event_count DESC
+// MAGIC Limit 10
 
 // COMMAND ----------
 
@@ -119,9 +106,8 @@ adtEvents.createOrReplaceTempView("adt_events")
 // MAGIC COUNT(eventType) as event_count
 // MAGIC , patientID
 // MAGIC , firstName
-// MAGIC , lastName
 // MAGIC  from adt_events 
-// MAGIC GROUP BY patientID, firstName, lastName
+// MAGIC GROUP BY patientID, firstName
 // MAGIC ORDER BY event_count DESC
 
 // COMMAND ----------
@@ -220,3 +206,11 @@ for (s <- spark.streams.active) {
 // MAGIC | :-: | :-:| :-: | :-:|
 // MAGIC | Spark|Apache-2.0 License | https://github.com/apache/spark/blob/master/LICENSE | https://github.com/apache/spark  |
 // MAGIC |Smolder |Apache-2.0 License| https://github.com/databrickslabs/smolder | https://github.com/databrickslabs/smolder/blob/master/LICENSE|
+
+// COMMAND ----------
+
+// MAGIC %md
+// MAGIC ## Disclaimers
+// MAGIC Databricks Inc. (“Databricks”) does not dispense medical, diagnosis, or treatment advice. This Solution Accelerator (“tool”) is for informational purposes only and may not be used as a substitute for professional medical advice, treatment, or diagnosis. This tool may not be used within Databricks to process Protected Health Information (“PHI”) as defined in the Health Insurance Portability and Accountability Act of 1996, unless you have executed with Databricks a contract that allows for processing PHI, an accompanying Business Associate Agreement (BAA), and are running this notebook within a HIPAA Account. Please note that if you run this notebook within Azure Databricks, your contract with Microsoft applies.
+// MAGIC 
+// MAGIC All names have been synthetically generated, and do not map back to any actual persons or locations
