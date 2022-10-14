@@ -29,8 +29,7 @@
 # COMMAND ----------
 
 # MAGIC %sh
-# MAGIC cd /databricks/driver/
-# MAGIC wget -N https://amir-hls.s3.us-east-2.amazonaws.com/public/263572c0_25a1_46ce_9009_2ae456966ea9-smolder_2_12_0_0_1_SNAPSHOT-615ef.jar -P /dbfs/tmp/smolder/jar/
+# MAGIC wget -O /dbfs/tmp/smolder/jar/smolder.jar https://hls-eng-data-public.s3.amazonaws.com/packages/smolder_212001.jar
 
 # COMMAND ----------
 
@@ -50,7 +49,7 @@ job_json = {
                 "job_cluster_key": "smolder_cluster",
                 "libraries": [
                     {
-                        "jar": "dbfs:/tmp/smolder/jar/263572c0_25a1_46ce_9009_2ae456966ea9-smolder_2_12_0_0_1_SNAPSHOT-615ef.jar"
+                        "jar": "dbfs:/tmp/smolder/jar/smolder.jar"
                     }
                 ],
                 "notebook_task": {
@@ -83,7 +82,3 @@ job_json = {
 dbutils.widgets.dropdown("run_job", "False", ["True", "False"])
 run_job = dbutils.widgets.get("run_job") == "True"
 NotebookSolutionCompanion().deploy_compute(job_json, run_job=run_job)
-
-# COMMAND ----------
-
-
