@@ -1,8 +1,13 @@
 // Databricks notebook source
+// MAGIC %md 
+// MAGIC You may find this series of notebooks at https://github.com/databricks-industry-solutions/smolder-solacc.git. For more information about this solution accelerator, visit https://www.databricks.com/blog/2021/01/28/burning-through-electronic-health-records-in-real-time-with-smolder.html.
+
+// COMMAND ----------
+
 // MAGIC %md
 // MAGIC ### Cluster Set Up
 // MAGIC 
-// MAGIC * Make sure [the Smolder jar file](https://amir-hls.s3.us-east-2.amazonaws.com/public/263572c0_25a1_46ce_9009_2ae456966ea9-smolder_2_12_0_0_1_SNAPSHOT-615ef.jar) is attached to your cluster. If you run the `RUNME` file in this folder, the cluster setup is automated and a Workflow and a `smolder_cluster` is created for you. Feel free to try running this notebook using either the Workflow or attach this notebook to the `smolder_cluster` to run interactively.
+// MAGIC * Make sure [the Smolder jar file](https://amir-hls.s3.us-east-2.amazonaws.com/public/263572c0_25a1_46ce_9009_2ae456966ea9-smolder_2_12_0_0_1_SNAPSHOT-615ef.jar) is attached to your cluster: If you run the `RUNME` file in this folder, the cluster setup is automated and a Workflow and a `smolder_cluster` is created for you. Feel free to try running this notebook using the Workflow. Alternatively, install [the Smolder jar file](https://amir-hls.s3.us-east-2.amazonaws.com/public/263572c0_25a1_46ce_9009_2ae456966ea9-smolder_2_12_0_0_1_SNAPSHOT-615ef.jar) to the `smolder_cluster` cluster and attach this notebook to run interactively.
 // MAGIC * If you run this notebook with the "Run All" option, the last block terminates the streams for you. If you opt to run this notebook block by block, *make sure to cancel your streaming commands, otherwise your cluster will not autoterminate*. 
 
 // COMMAND ----------
