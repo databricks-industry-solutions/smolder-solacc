@@ -28,11 +28,6 @@
 
 # COMMAND ----------
 
-# MAGIC %sh
-# MAGIC wget -O /dbfs/tmp/smolder/jar/smolder.jar https://hls-eng-data-public.s3.amazonaws.com/packages/smolder_212001.jar
-
-# COMMAND ----------
-
 from solacc.companion import NotebookSolutionCompanion
 
 # COMMAND ----------
@@ -49,7 +44,7 @@ job_json = {
                 "job_cluster_key": "smolder_cluster",
                 "libraries": [
                     {
-                        "jar": "dbfs:/tmp/smolder/jar/smolder.jar"
+                        "jar": "s3://hls-eng-data-public/packages/smolder_212001.jar"
                     }
                 ],
                 "notebook_task": {
