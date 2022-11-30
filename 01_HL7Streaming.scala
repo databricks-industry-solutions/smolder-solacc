@@ -1,6 +1,6 @@
 // Databricks notebook source
 // MAGIC %md 
-// MAGIC You may find this series of notebooks at https://github.com/databricks-industry-solutions/smolder-solacc.git. For more information about this solution accelerator, visit https://www.databricks.com/blog/2021/01/28/burning-through-electronic-health-records-in-real-time-with-smolder.html.
+// MAGIC You may find this series of notebooks at https://github.com/databricks-industry-solutions/smolder-solacc.git. For more information about this solution accelerator, visit https://www.databricks.com/solutions/accelerators/hl7v2.
 
 // COMMAND ----------
 
