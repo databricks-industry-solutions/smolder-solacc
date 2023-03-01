@@ -191,7 +191,7 @@ Thread.sleep(120000)
 // MAGIC * Streaming HL7 ingestion & processing
 // MAGIC * Near real-time query and analytics of streaming data
 // MAGIC * Easily stream into a persisted Delta table
-// MAGIC * Leverage Delta functionality for auditability and reproducability 
+// MAGIC * Leverage Delta functionality for auditability and reproducibility 
 // MAGIC 
 // MAGIC Now let's gracefully terminate the streaming queries after a few minutes.
 
