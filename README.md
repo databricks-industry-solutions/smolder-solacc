@@ -1,5 +1,7 @@
 # Smolder: A package for ingesting HL7 messages to Delta Lake
 
+Note: Please reference the library, code, and usage at https://github.com/databrickslabs/smolder. This is no longer maintained. 
+
 In this notebook, we demonstrate how [Smolder](https://github.com/databrickslabs/smolder) can be used to parse HL7v2 message into your lakehouse. Smolder defines a very simple Spark file format that loads one HL7 message per file, and parses it into a dataframe. Here, we'll demonstrate this using a stream of HL7 ADT messages generated from a simulated dataset with [Synthea](https://github.com/synthetichealth/synthea)
 
 
